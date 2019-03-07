@@ -51,15 +51,32 @@ public class USACO {
         qwe++;
       }
     }
-    for(int eded = 0; eded < board.length; eded++) {
-      for(int wsws = 0; wsws < board[eded].length; wsws++) {
-        System.out.println(board[eded][wsws]);
+    int[][] copy = new int[rc][cc];
+    for(int azsx = 0; azsx < copy.length; azsx++) {
+      for(int sxaz = 0; sxaz < copy[azsx].length; sxaz++) {
+        copy[azsx][sxaz] = board[azsx][sxaz];
       }
-      System.out.println("\n");
     }
-    String[] mlist = new String[nmoves];
+    String[] mlistu = new String[nmoves];
     for(int w = 0; w < nmoves; w++) {
-      mlist[w] = in.nextLine();
+      mlistu[w] = in.nextLine();
+    }
+    int[][] mlist = new int[nmoves][3];
+    for(int eded = 0; eded < mlistu.length; eded++) {
+      String stst = "";
+      String mses = mlistu[eded];
+      int uio = 0;
+      int adta = 0;
+      while(uio < mses.length()) {
+        while(uio < mses.length() && mses.charAt(uio) != ' ') {
+          stst += mses.charAt(uio);
+          uio++;
+        }
+        mlist[eded][adta] = Integer.parseInt(stst);
+        adta++;
+        uio++;
+        stst = "";
+      }
     }
     return 1;
   }
