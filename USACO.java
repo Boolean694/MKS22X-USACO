@@ -79,8 +79,8 @@ public class USACO {
       }
     }
     for(int mco = 0; mco < mlist.length; mco++) {
-      int sr = mlist[mco][0];
-      int sc = mlist[mco][1];
+      int sr = mlist[mco][0] - 1;
+      int sc = mlist[mco][1] - 1;
       int ln = 0;
       int lnr = 0;
       int lnc = 0;
@@ -109,7 +109,12 @@ public class USACO {
         }
       }
     }
-
+    for(int pbr = 0; pbr < board.length; pbr++) {
+      for(int pbc = 0; pbc < board[pbr].length; pbc++) {
+        System.out.print(board[pbr][pbc] + " ");
+      }
+      System.out.println("");
+    }
     return 1;
   }
   public static void main(String[] asdfsdhfk) {
