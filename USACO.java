@@ -94,9 +94,10 @@ public class USACO {
         }
       }
       board[lnr][lnc] -= mlist[mco][2];
+      ln -= mlist[mco][2];
       for(int smrc = 0; smrc < 3; smrc++) {
         for(int smcc = 0; smcc < 3; smcc++) {
-          if(board[sr + smrc][sc + smcc] >= ln) {
+          if(board[sr + smrc][sc + smcc] > ln) {
             board[sr + smrc][sc + smcc] = ln;
           }
         }
