@@ -120,15 +120,13 @@ public class USACO {
         }
       }
     }
-
-    for(int pbr = 0; pbr < copy.length; pbr++) {
-      for(int pbc = 0; pbc < copy[pbr].length; pbc++) {
-        System.out.print(copy[pbr][pbc] + " ");
+    int ret = 0;
+    for(int finr = 0; finr < copy.length; finr++) {
+      for(int finc = 0; finc < copy[finr].length; finc++) {
+        ret += 5184 * copy[finr][finc];
       }
-      System.out.println("");
     }
-
-    return 1;
+    return ret;
   }
   public static void main(String[] asdfsdhfk) {
     try {
