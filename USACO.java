@@ -110,12 +110,24 @@ public class USACO {
         }
       }
     }
-    for(int pbr = 0; pbr < board.length; pbr++) {
-      for(int pbc = 0; pbc < board[pbr].length; pbc++) {
-        System.out.print(board[pbr][pbc] + " ");
+    for(int dtr = 0; dtr < board.length; dtr++) {
+      for(int dtc = 0; dtc < board[dtr].length; dtc++) {
+        if(elev - board[dtr][dtc] <= 0) {
+          copy[dtr][dtc] = 0;
+        }
+        else {
+          copy[dtr][dtc] = elev - board[dtr][dtc];
+        }
+      }
+    }
+
+    for(int pbr = 0; pbr < copy.length; pbr++) {
+      for(int pbc = 0; pbc < copy[pbr].length; pbc++) {
+        System.out.print(copy[pbr][pbc] + " ");
       }
       System.out.println("");
     }
+
     return 1;
   }
   public static void main(String[] asdfsdhfk) {
