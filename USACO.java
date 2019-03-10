@@ -78,6 +78,38 @@ public class USACO {
         stst = "";
       }
     }
+    for(int mco = 0; mco < mlist.length; mco++) {
+      int sr = mlist[mco][0];
+      int sc = mlist[mco][1];
+      int ln = 0;
+      int lnr = 0;
+      int lnc = 0;
+      for(int mrco = 0; mrco < 3; mrco++) {
+        for(int mcco = 0; mcco < 3; mcco++) {
+          if(board[sr + mrco][sc + mcco] > ln) {
+            ln = board[sr + mrco][sc + mcco];
+            lnr = sr + mrco;
+            lnc = sc + mcco;
+          }
+        }
+      }
+      board[lnr][lnc] -= mlist[mco][2];
+      for(int smrc = 0; smrc < 3; smrc++) {
+        for(int smcc = 0; smcc < 3; smcc++) {
+          if(board[sr + smrc][sc + smcc] >= ln) {
+            board[sr + smrc][sc + smcc] = ln;
+          }
+        }
+      }
+    }
+    for(int rfv = 0; rfv < board.length; rfv++) {
+      for(int edc = 0; edc < board[rfv].length; edc++) {
+        if(board[rfv][edc] < 0) {
+          board[rfv][edc] = 0;
+        }
+      }
+    }
+
     return 1;
   }
   public static void main(String[] asdfsdhfk) {
