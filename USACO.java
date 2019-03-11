@@ -128,6 +128,33 @@ public class USACO {
     }
     return ret;
   }
+  public static int silver(String sf) throws FileNotFoundException {
+    File ftwo = new File(sf);
+    Scanner insc = new Scanner(ftwo);
+    String flt = insc.nextLine();
+    String temr = "";
+    int flco = 0;
+    while(flt.charAt(flco) != ' ' && flco < flt.length()) {
+      temr += flt.charAt(flco);
+      flco++;
+    }
+    int rct = Integer.parseInt(temr);
+    flco++;
+    String temc = "";
+    while(flt.charAt(flco) != ' ' && flco < flt.length()) {
+      temc += flt.charAt(flco);
+      flco++;
+    }
+    int cct = Integer.parseInt(temc);
+    flco++;
+    String temt = "";
+    while(flco < flt.length()) {
+      temt += flt.charAt(flco);
+      flco++;
+    }
+    int sec = Integer.parseInt(temt);
+    return 1;
+  }
   public static void main(String[] asdfsdhfk) {
     try {
       USACO.bronze("makelake.1.in");
