@@ -153,11 +153,18 @@ public class USACO {
       flco++;
     }
     int sec = Integer.parseInt(temt);
+    char[][] tboard = new char[rct][cct];
+    for(int q = 0; q < rct; q++) {
+      String bol = insc.nextLine();
+      for(int w = 0; w < cct; w++) {
+        tboard[q][w] = bol.charAt(w);
+      }
+    }
     return 1;
   }
   public static void main(String[] asdfsdhfk) {
     try {
-      USACO.bronze("makelake.1.in");
+      USACO.silver("ctravel.1.in");
     }
     catch(FileNotFoundException e) {System.out.println("asdfsadf");}
   }
