@@ -153,11 +153,16 @@ public class USACO {
       flco++;
     }
     int sec = Integer.parseInt(temt);
-    char[][] tboard = new char[rct][cct];
+    boolean[][] tboard = new boolean[rct][cct];
     for(int q = 0; q < rct; q++) {
       String bol = insc.nextLine();
       for(int w = 0; w < cct; w++) {
-        tboard[q][w] = bol.charAt(w);
+        if(bol.charAt(w) == '.') {
+          tboard[q][w] = true;
+        }
+        else {
+          tboard[q][w] = false;
+        }
       }
     }
     String ll = insc.nextLine();
