@@ -160,6 +160,35 @@ public class USACO {
         tboard[q][w] = bol.charAt(w);
       }
     }
+    String ll = insc.nextLine();
+    int cll = 0;
+    String x1s = "";
+    while(ll.charAt(cll) != ' ') {
+      x1s += ll.charAt(cll);
+      cll++;
+    }
+    int x1 = Integer.parseInt(x1s);
+    cll++;
+    String y1s = "";
+    while(ll.charAt(cll) != ' ') {
+      y1s += ll.charAt(cll);
+      cll++;
+    }
+    int y1 = Integer.parseInt(y1s);
+    cll++;
+    String x2s = "";
+    while(ll.charAt(cll) != ' ') {
+      x2s += ll.charAt(cll);
+      cll++;
+    }
+    int x2 = Integer.parseInt(x2s);
+    cll++;
+    String y2s = "";
+    while(cll < ll.length()) {
+      y2s += ll.charAt(cll);
+      cll++;
+    }
+    int y2 = Integer.parseInt(y2s);
     return 1;
   }
   public static void main(String[] asdfsdhfk) {
