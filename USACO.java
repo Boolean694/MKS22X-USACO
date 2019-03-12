@@ -153,16 +153,11 @@ public class USACO {
       flco++;
     }
     int sec = Integer.parseInt(temt);
-    boolean[][] tboard = new boolean[rct][cct];
+    char[][] tboard = new char[rct][cct];
     for(int q = 0; q < rct; q++) {
       String bol = insc.nextLine();
       for(int w = 0; w < cct; w++) {
-        if(bol.charAt(w) == '.') {
-          tboard[q][w] = true;
-        }
-        else {
-          tboard[q][w] = false;
-        }
+        tboard[q][w] = bol.charAt(w);
       }
     }
     String ll = insc.nextLine();
@@ -172,33 +167,115 @@ public class USACO {
       x1s += ll.charAt(cll);
       cll++;
     }
-    int x1 = Integer.parseInt(x1s);
+    int x1 = Integer.parseInt(x1s) - 1;
     cll++;
     String y1s = "";
     while(ll.charAt(cll) != ' ') {
       y1s += ll.charAt(cll);
       cll++;
     }
-    int y1 = Integer.parseInt(y1s);
+    int y1 = Integer.parseInt(y1s) - 1;
     cll++;
     String x2s = "";
     while(ll.charAt(cll) != ' ') {
       x2s += ll.charAt(cll);
       cll++;
     }
-    int x2 = Integer.parseInt(x2s);
+    int x2 = Integer.parseInt(x2s) - 1;
     cll++;
     String y2s = "";
     while(cll < ll.length()) {
       y2s += ll.charAt(cll);
       cll++;
     }
-    int y2 = Integer.parseInt(y2s);
-    return 1;
+    int y2 = Integer.parseInt(y2s) - 1;
+    int[][] bnm1 = new int[rct][cct];
+    int[][] bnm2 = new int[rct][cct];
+    for(int q = 0; q < bnm1.length; q++) {
+      for(int w = 0; w < bnm1[q].length; w++) {
+        bnm1[q][w] = 0;
+        bnm2[q][w] = 0;
+      }
+    }
+    bnm1[x1][y1] = 1;
+    for(int nmo = 0; nmo < sec; nmo++) {
+      if(nmo % 2 == 0) {
+        for(int q = 0; q < bnm1.length; q++) {
+          for(int w = 0; w < bnm1[q].length; w++) {
+            int locsum = 0;
+            try {
+              if(tboard[q - 1][w] != '*') {
+                locsum += bnm1[q - 1][w];
+              }
+            }
+            catch(ArrayIndexOutOfBoundsException ajajajaj) {}
+            try {
+              if(tboard[q + 1][w] != '*') {
+                locsum += bnm1[q + 1][w];
+              }
+            }
+            catch(ArrayIndexOutOfBoundsException ajajajaj) {}
+            try {
+              if(tboard[q][w - 1] != '*') {
+                locsum += bnm1[q][w - 1];
+              }
+            }
+            catch(ArrayIndexOutOfBoundsException ajajajaj) {}
+            try {
+              if(tboard[q][w + 1] != '*') {
+                locsum += bnm1[q][w + 1];
+              }
+            }
+            catch(ArrayIndexOutOfBoundsException ajajajaj) {}
+            bnm2[q][w] = locsum;
+          }
+        }
+      }
+      else {
+        for(int q = 0; q < bnm1.length; q++) {
+          for(int w = 0; w < bnm1[q].length; w++) {
+            int locsum = 0;
+            try {
+              if(tboard[q - 1][w] != '*') {
+                locsum += bnm2[q - 1][w];
+              }
+            }
+            catch(ArrayIndexOutOfBoundsException ajajajaj) {}
+            try {
+              if(tboard[q + 1][w] != '*') {
+                locsum += bnm2[q + 1][w];
+              }
+            }
+            catch(ArrayIndexOutOfBoundsException ajajajaj) {}
+            try {
+              if(tboard[q][w - 1] != '*') {
+                locsum += bnm2[q][w - 1];
+              }
+            }
+            catch(ArrayIndexOutOfBoundsException ajajajaj) {}
+            try {
+              if(tboard[q][w + 1] != '*') {
+                locsum += bnm2[q][w + 1];
+              }
+            }
+            catch(ArrayIndexOutOfBoundsException ajajajaj) {}
+            bnm1[q][w] = locsum;
+          }
+        }
+      }
+    }
+    int ret = 0;
+    if(sec % 2 == 0) {
+      ret = bnm1[x2][y2];
+    }
+    else {
+      ret = bnm2[x2][y2];
+    }
+    return ret;
   }
   public static void main(String[] asdfsdhfk) {
     try {
-      USACO.silver("ctravel.1.in");
+      System.out.println(USACO.silver("ctravel.4.in"));
     }
     catch(FileNotFoundException e) {System.out.println("asdfsadf");}
   }
